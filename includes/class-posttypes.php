@@ -33,16 +33,16 @@ if ( ! class_exists( 'FooGallery_PostTypes' ) ) {
 						'search_items'       => __( 'Search Galleries', 'foogallery' ),
 						'not_found'          => __( 'No Galleries found', 'foogallery' ),
 						'not_found_in_trash' => __( 'No Galleries found in Trash', 'foogallery' ),
-						'menu_name'          => foogallery_plugin_name(),
+						'menu_name'          => __( 'Galleries', 'foogallery' ),
 						'all_items'          => __( 'Galleries', 'foogallery' )
 					),
 					'hierarchical'  => false,
-					'public'        => false,
-					'rewrite'       => false,
+					'public'        => true,
+					'rewrite'       => true,
 					'show_ui'       => true,
 					'show_in_menu'  => true,
 					'menu_icon'     => 'dashicons-format-gallery',
-					'supports'      => array( 'title', 'thumbnail', ),
+					'supports'      => array( 'title', 'editor', 'thumbnail' ),
 				)
 			);
 

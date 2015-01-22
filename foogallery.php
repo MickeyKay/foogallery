@@ -11,7 +11,7 @@
  * @copyright 2013 FooPlugins LLC
  *
  * @wordpress-plugin
- * Plugin Name: FooGallery
+ * Plugin Name: FooGallery - Folio Version
  * Plugin URI:  https://github.com/fooplugins/foogallery
  * Description: Better Image Galleries for WordPress
  * Version:     1.2.0
@@ -71,6 +71,7 @@ if ( ! class_exists( 'FooGallery_Plugin' ) ) {
 		 */
 		private function __construct() {
 
+			echo current_filter();
 			//include everything we need!
 			require_once( FOOGALLERY_PATH . 'includes/includes.php' );
 

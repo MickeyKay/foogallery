@@ -31,7 +31,8 @@ class FooGallery_Album_Template_Loader {
 
 		//find the gallery template we will use to render the gallery
 		$current_foogallery_album_template = $this->get_arg( $args, 'template', $current_foogallery_album->album_template );
-
+		echo '<pre>' . print_r($current_foogallery_album_template, true) . '</pre>';
+				
 		//set a default if we have no gallery template
 		if ( empty($current_foogallery_album_template) ) {
 			$current_foogallery_album_template = foogallery_get_default( 'album_template' );

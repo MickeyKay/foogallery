@@ -1,54 +1,7 @@
 (function() {
 	tinymce.PluginManager.add('foogallery', function( editor, url ) {
 
-		function getParentFooGallery( node ) {
-			while ( node && node.nodeName !== 'BODY' ) {
-				if ( isFooGallery( node ) ) {
-					return node;
-				}
-
-				node = node.parentNode;
-			}
-		}
-
-		function isFooGallery( node ) {
-			return node && /foogallery-tinymce-view/.test( node.className );
-		}
-
-		function unselectFooGallery( dom ) {
-			dom.removeClass(dom.select('div.foogallery-tinymce-selected'), 'foogallery-tinymce-selected');
-		}
-
-		editor.on( 'BeforeSetContent', function( event ) {
-			if ( ! event.content ) {
-				return;
-			}
-
-			var shortcode_tag = window.FOOGALLERY_SHORTCODE || 'foogallery',
-				regexp = new RegExp('\\[' + shortcode_tag + ' ([^\\]]*)\\]', 'g');
-
-			event.content = event.content.replace( regexp, function( match ) {
-
-				var data = window.encodeURIComponent( match ),
-					idRegex = / id=\"(.*?)\"/ig,
-					idMatch = idRegex.exec( match),
-					id = idMatch ? idMatch[1] : 0;
-
-				return '<div class="foogallery-tinymce-view mceNonEditable" data-foogallery="' + data + '" contenteditable="false" data-mce-resize="false" data-mce-placeholder="1" data-foogallery-id="' + id + '">' +
-					'  <div class="foogallery-tinymce-toolbar">' +
-					'    <a class="dashicons dashicons-edit foogallery-tinymce-toolbar-edit" href="post.php?post=' + id + '&action=edit" target="_blank">&nbsp;</a>' +
-					'    <div class="dashicons dashicons-no-alt foogallery-tinymce-toolbar-delete">&nbsp;</div>' +
-					'  </div>' +
-					'  <div class="foogallery-pile">' +
-					'    <div class="foogallery-pile-inner">' +
-					'      <div class="foogallery-pile-inner-thumb">&nbsp;</div>' +
-					'    </div>' +
-					'  </div>' +
-					'  <div class="foogallery-tinymce-title">&nbsp;</div>' +
-					'  <div class="foogallery-tinymce-count">&nbsp;</div>' +
-					'</div>';
-			});
-		});
+		
 
 		editor.on( 'LoadContent', function( event ) {
 			if ( ! event.content ) {
